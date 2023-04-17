@@ -1,6 +1,7 @@
 package com.onetomany.bi.serviceimpl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,9 +38,9 @@ public class ProjectServiceImpl implements ProjectService {
 	}
 
 	@Override
-	public Project getProjectbyName(String projectName) {
-		// TODO Auto-generated method stub
-		return null;
+	public Optional<Project> getProjectbyName(String projectName) {
+		Optional<Project> projects = projectRepository.findById(projectName);
+		return projects;
 	}
 
 }
